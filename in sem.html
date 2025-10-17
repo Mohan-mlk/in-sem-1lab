@@ -1,0 +1,65 @@
+import React, { useState } from "react";
+
+const Counter = () => {
+  const [count, setCount] = useState(0);
+
+  const increment = () => setCount(prev => prev + 1);
+  const decrement = () => setCount(prev => prev - 1);
+  const reset = () => setCount(0);
+
+  return (
+    <div style={styles.container}>
+      <h2 style={styles.title}>React Counter</h2>
+      <div style={styles.display}>{count}</div>
+      <div style={styles.buttonGroup}>
+        <button style={{ ...styles.button, background: "#4CAF50" }} onClick={increment}>
+          +
+        </button>
+        <button style={{ ...styles.button, background: "#f44336" }} onClick={decrement}>
+          −
+        </button>
+        <button style={{ ...styles.button, background: "#2196F3" }} onClick={reset}>
+          Reset
+        </button>
+      </div>
+    </div>
+  );
+};
+
+const styles = {
+  container: {
+    textAlign: "center",
+    backgroundColor: "#f4f4f9",
+    borderRadius: "12px",
+    padding: "30px",
+    width: "280px",
+    margin: "40px auto",
+    boxShadow: "0 4px 12px rgba(0,0,0,0.1)"
+  },
+  title: {
+    fontSize: "1.5rem",
+    marginBottom: "15px",
+    color: "#333"
+  },
+  display: {
+    fontSize: "3rem",
+    fontWeight: "bold",
+    margin: "20px 0",
+    color: "#222"
+  },
+  buttonGroup: {
+    display: "flex",
+    justifyContent: "space-around"
+  },
+  button: {
+    border: "none",
+    color: "#fff",
+    padding: "10px 20px",
+    fontSize: "1rem",
+    borderRadius: "8px",
+    cursor: "pointer",
+    transition: "transform 0.2s ease",
+  }
+};
+
+export default Counter;
